@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    crashlytics-uber-s3 (0.3.0)
+    crashlytics-uber-s3 (0.3.1)
       mime-types (~> 1.17)
 
 GEM
