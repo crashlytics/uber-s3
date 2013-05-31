@@ -2,7 +2,7 @@ class UberS3
   module Connection
     
     def self.open(s3, options={})
-      adapter = options.delete(:adapter) || :net_http      
+      adapter = options[:adapter] || :net_http
       
       begin
         require "uber-s3/connection/#{adapter}"
