@@ -2,13 +2,13 @@ require 'net/http'
 
 module UberS3::Connection
   class NetHttp < Adapter
-    
+
     def request(verb, url, headers={}, body=nil)
       if verb == :get
         # Support fetching compressed data
         headers['Accept-Encoding'] = 'gzip, deflate'
       end
-      
+
       self.uri = URI.parse(url)
 
       # Init and open a HTTP connection
@@ -37,7 +37,7 @@ module UberS3::Connection
       else
         response_body = r.body
       end
-      
+
       UberS3::Response.new({
         :status => r.code.to_i,
         :header => r.header.to_hash,
@@ -58,6 +58,6 @@ module UberS3::Connection
           socket.io.setsockopt(Socket::IPPROTO_TCP, Socket::TCP_NODELAY, true)
         end
       end
-    
+
   end
 end

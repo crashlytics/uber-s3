@@ -12,7 +12,7 @@ module UberS3::Connection
       params[:body] = body if body
       # params[:keepalive] = true if persistent # causing issues ...?
 
-      retries = 2
+      retries = 4
       begin
         r = EM::HttpRequest.new(url, :inactivity_timeout => 10, :connect_timeout => 10).send(verb, params)
 
