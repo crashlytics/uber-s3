@@ -5,7 +5,7 @@ require 'em-synchrony/em-http'
 
 module UberS3::Connection
   class EmHttpFibered < Adapter
-    
+
     def request(verb, url, headers={}, body=nil)
       params = {}
       params[:head] = headers
@@ -25,8 +25,9 @@ module UberS3::Connection
       rescue UberS3::Error::InternalError => e
         retries -= 1
         retry if retries >= 0
+        raise e
       end
     end
-    
+
   end
 end
