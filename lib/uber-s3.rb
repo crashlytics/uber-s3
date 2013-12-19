@@ -25,6 +25,7 @@ class UberS3
   end
 
   def connection
+    Thread.current['[uber-s3]:connection'] ||= {}
     Thread.current['[uber-s3]:connection'][self.bucket] ||= Connection.open(self, options)
   end
 
