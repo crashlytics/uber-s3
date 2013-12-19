@@ -19,7 +19,7 @@ GIT
 PATH
   remote: .
   specs:
-    crashlytics-uber-s3 (0.3.6)
+    crashlytics-uber-s3 (0.3.7)
       mime-types (~> 1.17)
 
 GEM
