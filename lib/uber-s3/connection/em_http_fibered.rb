@@ -10,6 +10,7 @@ module UberS3::Connection
       params = {}
       params[:head] = headers
       params[:body] = body if body
+      params[:redirects] = 10
       # params[:keepalive] = true if persistent # causing issues ...?
 
       retries = 4
