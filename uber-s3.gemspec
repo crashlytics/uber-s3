@@ -12,13 +12,14 @@ Gem::Specification.new do |s|
   s.authors     = ['Peter Kieltyka']
   s.email       = ['peter@nulayer.com']
   s.homepage    = 'http://github.com/nulayer/uber-s3'
-  
+
   s.required_rubygems_version = ">= 1.3.6"
-  
+
   s.files        = Dir['README.md', 'lib/**/*']
   s.require_path = 'lib'
 
   s.add_dependency('mime-types', ['~> 1.17'])
+  s.add_dependency 'crashlytics-utils'
 
   s.add_development_dependency('rake')
   s.add_development_dependency('rspec', ['~> 2.7.0'])
