@@ -22,6 +22,7 @@ class UberS3
 
     def success?
       ::Utils::Statsd.increment("ubers3.response.#{status}")
+      raise Error::Unknown, "HTTP Response: #{status}, Body: #{body}" if status == 0
       return if status < 400 || body.to_s.empty?
 
       # Errors are XML
