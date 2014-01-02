@@ -23,7 +23,7 @@ module UberS3::Connection
           :body   => r.response,
           :raw    => r
         })
-      rescue UberS3::Error::InternalError => e
+      rescue UberS3::Error::InternalError, UberS3::Error::Unknown => e
         class_name = e.class.name.split('::').last
         ::Utils::Statsd.increment("ubers3.exception.#{class_name}.retry")
         retries -= 1
