@@ -28,7 +28,7 @@ EM.run do
   
   canonical_string_to_sign = "#{req_method}\n#{req_content_md5}\n#{req_content_type}\n#{req_date}\n#{req_canonical_amz_headers}#{req_canonical_resource}"
   
-  digest   = OpenSSL::Digest::Digest.new('sha1')
+  digest   = OpenSSL::Digest.new('sha1')
   signature = [OpenSSL::HMAC.digest(digest, secret_access_key, canonical_string_to_sign)].pack("m").strip
   
   #-----------
