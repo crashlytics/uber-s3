@@ -25,11 +25,17 @@ class UberS3
       raise Error::Unknown, "HTTP Response: #{status}, Body: #{body}" if status == 0
       return if status < 400 || body.to_s.empty?
 
-      # Errors are XML
-      doc = Util::XmlDocument.new(body)
+      begin
 
-      self.error_key      = doc.xpath('//Error/Code').first.text
-      self.error_message  = doc.xpath('//Error/Message').first.text
+        # Errors are XML
+        doc = Util::XmlDocument.new(body)
+
+        self.error_key      = doc.xpath('//Error/Code').first.text
+        self.error_message  = doc.xpath('//Error/Message').first.text
+
+      rescue
+        raise Error::InternalError
+      end
 
       error_klass = instance_eval("Error::#{error_key}") rescue nil
 
