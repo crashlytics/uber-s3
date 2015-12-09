@@ -1,7 +1,0 @@
-defaults: &defaults
-  access_key: x
-  secret_access_key: y
-
-test:
-  <<: *defaults
-  bucket: nutestbucket
