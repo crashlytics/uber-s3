@@ -34,7 +34,7 @@ class UberS3
         self.error_message  = doc.xpath('//Error/Message').first.text
 
       rescue
-        raise Error::InternalError
+        raise Error::Unknown, "HTTP Response: #{status}, Body: #{body}"
       end
 
       error_klass = instance_eval("Error::#{error_key}") rescue nil

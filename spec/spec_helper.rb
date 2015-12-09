@@ -21,12 +21,11 @@ end
 
 require 'uber-s3'
 require 'rspec'
+require 'utils'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 # Dir["#{SPEC_ROOT}/support/**/*.rb"].each {|f| require f}
-
-SETTINGS = YAML.load(File.read("#{SPEC_ROOT}/config/settings.yml"))['test']
 
 RSpec.configure do |config|
   config.mock_with :rspec  
