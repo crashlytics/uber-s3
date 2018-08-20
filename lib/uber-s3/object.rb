@@ -8,6 +8,7 @@ class UberS3
     include Operation::Object::HttpCache
     include Operation::Object::Meta
     include Operation::Object::StorageClass
+    include Operation::Object::Tagging
 
     attr_accessor :bucket, :key, :response, :value, :size, :error
     
@@ -88,6 +89,14 @@ class UberS3
       # Meta
       if !meta.nil? && !meta.empty?
         meta.each {|k,v| headers["x-amz-meta-#{k}"] = v.to_s }
+      end
+
+      # Tagging
+      if !tagging.nil? && !tagging.empty?
+        # Turn the tags hash into a query string
+        tagging_query_string = tagging.map { |k, v| "#{k}=#{v}" }.join('&')
+
+        headers['x-amz-tagging'] = tagging_query_string
       end
       
       # Let's do it

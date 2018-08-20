@@ -1,5 +1,5 @@
 source :rubygems
-source 'https://gems.gemfury.com/aVfGHNDwxe6175nGVzAr/'
+source 'https://GjnycqiDcSsgedaaFcxu@gem.fury.io/crashlytics/'
 
 gemspec
 

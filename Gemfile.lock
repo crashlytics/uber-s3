@@ -25,7 +25,7 @@ PATH
 
 GEM
   remote: http://rubygems.org/
-  remote: https://gems.gemfury.com/aVfGHNDwxe6175nGVzAr/
+  remote: https://GjnycqiDcSsgedaaFcxu@gem.fury.io/crashlytics/
   specs:
     addressable (2.2.7)
     coderay (1.0.6)
@@ -34,8 +34,8 @@ GEM
     diff-lcs (1.2.5)
     em-socksify (0.2.0)
       eventmachine (>= 1.0.0.beta.4)
-    eventmachine (1.0.3)
-    eventmachine (1.0.3-java)
+    eventmachine (1.0.9.1)
+    eventmachine (1.0.9.1-java)
     http_parser.rb (0.5.3)
     http_parser.rb (0.5.3-java)
     method_source (0.7.1)
@@ -81,3 +81,6 @@ DEPENDENCIES
   pry-nav
   rake
   rspec (~> 3.4.0)
+
+BUNDLED WITH
+   1.16.2
